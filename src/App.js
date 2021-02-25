@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Intro from "./components/intro";
+import Header from './components/header/header';
+import GrupoContenedor from './components/grupos/grupoContenedor';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Intro} />
+          {/* <Route exact path="/grupo/nuevoGrupo" component={NuevoGrupo} /> */}
+          <Route
+            path="/grupos/:grupoId"
+            render={({ match }) => <GrupoContenedor id={match.params.grupoId} />}
+          />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
