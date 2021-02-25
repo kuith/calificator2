@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ParcialesContenedor from '../parciales/parcialesContenedor';
+import AlumnosContenedor from '../parciales/alumnosContenedor';
 
 const GrupoContenedor = (props) => {
   //recibo el id del grupo
@@ -62,7 +62,7 @@ const GrupoContenedor = (props) => {
 
       <div className="row">
         <div className="col-sm">
-          <ParcialesContenedor
+          <AlumnosContenedor
             idGrupo={grupo.id}
             idTrimestre={trimestreSeleccionado} />
         </div>

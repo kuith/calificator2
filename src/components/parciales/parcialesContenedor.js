@@ -3,34 +3,24 @@ import axios from 'axios';
 
 const ParcialesContenedor = (props) => {
 
-  const [alumnosGrupo, setAlumnosGrupo] = useState([]);
-  const [alumno, setAlumno] = useState();
+  const[parciales, setParciales] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`/alumnos/grupos/${props.idGrupo}`);
-      console.log(result);
-      setAlumnosGrupo(result.data);
+      const result = await axios.get(`/realizas/parciales/alumnos/${props.idTrimestre}/${props.idAlumno}`);
+      //console.log(props.idTrimestre);
+      setParciales(result.data);
     }; fetchData();
-  }, [props.idGrupo]);
+  }, [props.idTrimestre]);
 
-  
-
-  const alumnosGrid = alumnosGrupo.map((alumno) => (
-    <tr>
-      <td>{alumno.nombre}</td>
-      <td>{alumno.apellidos}</td>
-    </tr>
-  ));
-
-  
+  const parcialesAlumno = parciales.map((parcial) => (
+    <td>{parcial.nota}</td>
+  ))
 
   return (
     <>
       <div className="container">
-        <table>
-          {alumnosGrid}
-        </table>
+        {parcialesAlumno}
       </div>
       </>
   );
