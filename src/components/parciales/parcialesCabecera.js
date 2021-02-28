@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ParcialesCabecera = (props) => {
+const ParcialesContenedor = (props) => {
 
   const[parciales, setParciales] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`/realizas/parciales/alumnos/${props.idTrimestre}/${props.idAlumno}`);
+      const result = await axios.get(`/realizas/parciales/${props.idTrimestre}/${props.idGrupo}`);
       //console.log(props.idTrimestre);
       setParciales(result.data);
     }; fetchData();
   }, [props.idTrimestre]);
 
   const parcialesAlumno = parciales.map((parcial) => (
-    <td>{parcial.nota}</td>
+    <td>{parcial.id}</td>
   ))
 
   return (
@@ -26,4 +26,4 @@ const ParcialesCabecera = (props) => {
   );
 }
 
-export default ParcialesCabecera;
+export default ParcialesContenedor;

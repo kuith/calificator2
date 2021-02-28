@@ -6,5 +6,12 @@ export  async function grupoPorId(idGrupo) {
   return result;
 }
 
+//obtencion de todos los grupos
+//export async function getGrupos() {
+//  const result = await axios.get("/grupos");
+//  return result;
+//}
+
+
 
 
