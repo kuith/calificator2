@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchGrupos } from '../../actions';
+import { connect, useSelector } from 'react-redux';
+import { fetchGroups } from '../../redux/actions';
 
-/* const Header = () => {
+const Header = () => {
+/* 
   const [grupos, setGrupos] = useState([]);
    
   useEffect(() => {
@@ -16,7 +17,10 @@ import { fetchGrupos } from '../../actions';
     }; fetchData();
   }, []); */
 
-  const grupos = useSelector(state => state.counter.count);
+  
+  const grupos = useSelector((state) => state.grupos);
+  console.log(grupos);
+  
 
   //grupos
   const gruposNavItem = grupos.map(grupo => (
@@ -84,4 +88,5 @@ import { fetchGrupos } from '../../actions';
   );
 }
 
-export default connect(null, {fetchGrupos}) (Header);
+export default connect(null, {fetchGroups}) (Header);
+//export default Header;
