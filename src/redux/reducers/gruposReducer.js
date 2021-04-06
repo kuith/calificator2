@@ -9,7 +9,7 @@ import {
   DELETE_GROUP
 } from '../types';
 
-//En lugar de usar una aproximacion de estado por array (devolviendo un array de grupos)
+//En lugar de usar una aproximación de estado por array (devolviendo un array de grupos)
 // lo vamos a hacer devolviendo un objeto, por eso el estado inicial es un objeto vacío.
 export default (state = {}, action) => { 
   switch (action.type) {

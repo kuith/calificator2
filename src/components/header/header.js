@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-import { connect, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchGroups } from '../../redux/actions';
 
 const Header = () => {
-/* 
-  const [grupos, setGrupos] = useState([]);
-   
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get("/grupos");
-      //console.log(result.data);
-      setGrupos(result.data);
-    }; fetchData();
-  }, []); */
 
-  
-  const grupos = useSelector((state) => state.grupos);
-  console.log(grupos);
-  
+  //Object.values lo usamos para pasar de una lista de objetos a un array
+  //para poder mapearlo.
+  const grupos = Object.values(useSelector((state) => state.grupos));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGroups());
+  }, []);
+
 
   //grupos
   const gruposNavItem = grupos.map(grupo => (
@@ -70,11 +64,6 @@ const Header = () => {
       </button>
       <div className="collapse navbar-collapse " id="navbarNavDropdown">
         <ul className="navbar-nav">
-          {/* <li className="nav-item active">
-            <Link className="nav-link text-dark" to="/">
-              Inicio <span className="sr-only">(current)</span>
-            </Link>
-          </li> */}
           {gruposNav}
         </ul>
       </div>
@@ -88,5 +77,4 @@ const Header = () => {
   );
 }
 
-export default connect(null, {fetchGroups}) (Header);
-//export default Header;
+export default Header;

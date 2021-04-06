@@ -16,12 +16,13 @@ import {
 } */
 ///lo de abajo es lo mismo simplificado
 
+//////GROUP ACTIONS /////////////////
+
 
 export const fetchGroups = () => async dispatch => {
   const response = await axios.get('/grupos');
 
   dispatch({ type: FETCH_GROUPS, payload: response.data });
-  console.log("hola");
 };
 
 export const createGroup = formValues => async dispatch => {
