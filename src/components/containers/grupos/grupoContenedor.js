@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchGroup } from '../../../redux/actions';
 
 import HeaderGrupo from './headerGrupo';
+import ParcialesContenedor from '../parciales/parcialesContenedor';
 
 
 const GrupoContenedor = (props) => {
@@ -15,17 +16,20 @@ const GrupoContenedor = (props) => {
     dispatch(fetchGroup(props.id));
   }, []);
   
+  const headerGrupo = (
+    <HeaderGrupo grupo={grupo} />
+  );
+
+  const parcialesContenedor = (
+    <ParcialesContenedor />
+  )
+
   //Tengo el grupo
   return (
     <>
-      <div>
-        <HeaderGrupo grupo={grupo}/>
-      </div>
-      <div>
-        <table>
-          Tabla alumnos/parciales
-        </table>
-      </div>
+      {headerGrupo}
+      {parcialesContenedor}
+     
     </>
   );
 }

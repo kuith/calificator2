@@ -3,11 +3,13 @@ import TrimestresList from '../../views/trimestresList'
 
 const HeaderGrupo = (props) => {
   return (
-    <div>
-      <div>
+    <div className="row">
+      <div className="col-4">
         Grupo: {props.grupo.curso} {props.grupo.nombre}, {props.grupo.anio}
       </div>
-       <TrimestresList/>
+      <div className="col-8">
+        <TrimestresList />
+      </div>
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
 import gruposReducer from './gruposReducer';
+import alumnosReducer from './alumnosReducer';
 
 export default combineReducers({
-  grupos: gruposReducer
+  grupos: gruposReducer,
+  alumnos: alumnosReducer
 });
