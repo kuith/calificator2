@@ -15,6 +15,8 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case typesClass.DELETE_ALUMNO:
       return _.omit(state, action.payload);
+    case typesClass.FETCH_ALUMNOS_BY_GROUP:
+      return {...state, ..._.mapKeys(action.payload, 'id')}
     case typesClass.FETCH_ALUMNOS:
       return {...state, ..._.mapKeys(action.payload, 'id')}
     default:

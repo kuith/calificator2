@@ -78,7 +78,7 @@ export const deleteAlumno = (id) => async dispatch => {
   dispatch({ type: typesClass.DELETE_ALUMNO, payload: id });
 }
 
-export const fetchAlumnoByGrupo = (idGrupo) => async dispatch => {
+export const fetchAlumnosByGrupo = (idGrupo) => async dispatch => {
   const response = await axios.get(`/alumnos/grupos/${idGrupo}`);
 
   dispatch({ type: typesClass.FETCH_ALUMNOS_BY_GROUP, payload: response.data });

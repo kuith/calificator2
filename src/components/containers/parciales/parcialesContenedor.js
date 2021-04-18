@@ -1,39 +1,16 @@
 import React from 'react';
-import { BsFillTrashFill } from "react-icons/bs";
 
-const ParcialesContenedor = () => {
+import AlumnosTabla from '../../views/alumnosTabla';
+
+const ParcialesContenedor = (props) => {
   return (
-     <div className="tablaParciales">
-        <table className ="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><BsFillTrashFill/></th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row"><BsFillTrashFill/></th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row"><BsFillTrashFill/></th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+    <div className="row">
+      <div className="col-4">
+        <div className="tablaParciales">
+          <AlumnosTabla grupo={props.grupo}/>
+        </div>
       </div>
+    </div>
   )
 }
 

@@ -15,7 +15,6 @@ const Header = () => {
     dispatch(fetchGroups());
   }, []);
 
-
   //grupos
   const gruposNavItem = grupos.map(grupo => (
     <Link className="dropdown-item" key={grupo.id} to={`/grupos/${grupo.id}`}>
