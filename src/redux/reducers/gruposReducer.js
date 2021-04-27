@@ -20,7 +20,7 @@ export default (state = {}, action) => {
       //las claves de ese objeto se van a tomar de cada uno de los elementos del array
       // y se lo pasamos como parametro, diciendole que el valor de la propiedad pasada
       //se convierta en la clave de cada elemento del objeto.
-      return {...state, ..._.mapKeys(action.payload, 'id')}
+      return { ...state, ..._.mapKeys(action.payload, 'id') };
     default:
       return state;
   }

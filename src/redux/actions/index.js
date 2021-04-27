@@ -80,7 +80,7 @@ export const deleteAlumno = (id) => async dispatch => {
 
 export const fetchAlumnosByGrupo = (idGrupo) => async dispatch => {
   const response = await axios.get(`/alumnos/grupos/${idGrupo}`);
-
+  
   dispatch({ type: typesClass.FETCH_ALUMNOS_BY_GROUP, payload: response.data });
 }
 
@@ -116,6 +116,13 @@ export const deleteTrimestre = (id) => async dispatch => {
   await axios.delete(`/trimestres/${id}`);
 
   dispatch({ type: typesClass.DELETE_TRIMESTRE, payload: id });
+}
+
+export const selectTrimestre = trimestre => {
+  return {
+    type: typesClass.SELECTED_TRIMESTRE,
+    payload: trimestre
+  }
 }
 
 //////PARCIALES ACTIONS /////////////////

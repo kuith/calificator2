@@ -8,7 +8,7 @@ const HeaderGrupo = (props) => {
         Grupo: {props.grupo.curso} {props.grupo.nombre}, {props.grupo.anio}
       </div>
       <div className="col-8">
-        <TrimestresList />
+        <TrimestresList/>
       </div>
     </div>
   )

@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchGroup, fetchAlumnosByGrupo } from '../../../redux/actions';
+import {
+  fetchGroup,
+  fetchAlumnosByGrupo,
+  fetchTrimestres
+} from '../../../redux/actions';
 
 import HeaderGrupo from './headerGrupo';
 import ParcialesContenedor from '../parciales/parcialesContenedor';
@@ -11,11 +15,7 @@ const GrupoContenedor = (props) => {
   //recibo el id del grupo
   const dispatch = useDispatch();
   const grupo = (useSelector((state) => state.grupos[props.id]));
-  const alumnos = Object.values(useSelector((state) => state.alumnos));
-  
-
-  console.log("Alumnos desde el contenedor: " + alumnos);
-    
+       
   useEffect(() => {
     dispatch(fetchGroup(props.id));
   }, []);
@@ -24,12 +24,16 @@ const GrupoContenedor = (props) => {
     dispatch(fetchAlumnosByGrupo(props.id));
   }, [props.id]);
   
+  useEffect(() => {
+    dispatch(fetchTrimestres());
+  }, []);
+
   const headerGrupo = (
-    <HeaderGrupo grupo={grupo} alumnosData={alumnos}/>
+    <HeaderGrupo grupo={grupo} />
   );
 
   const parcialesContenedor = (
-    <ParcialesContenedor grupo={grupo} alumnosData={alumnos}/>
+    <ParcialesContenedor grupo={grupo}/>
   )
 
  // console.log(alumnos);

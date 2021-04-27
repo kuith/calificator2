@@ -1,22 +1,18 @@
 import React from 'react';
 import { BsFillTrashFill } from "react-icons/bs";
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const AlumnosTable = (props) => {
   const idGrupo = props.grupo.id;
-  const alumnos = props.alumnosData;
-  //const alumnos = Object.values(useSelector((state) => state.alumnos));
+  const alumnos = Object.values(useSelector((state) => state.alumnos));
 
-  console.log("Alumnos desde la tabla: " + alumnos);
-  console.log("idGrupo: " + idGrupo);
-
- /*  const alumnosD = alumnos.map(alumno => (
-    <tr>
+  const alumnosData = alumnos.map(alumno => (
+    <tr key={alumno.id}>
       <th scope="row"><BsFillTrashFill /></th>
       <td>{alumno.nombre}</td>
       <td>{alumno.apellidos}</td>
     </tr>
-  )); */
+  ));
 
   const alumnosTable = (
      <table className ="table table-striped">
@@ -28,12 +24,9 @@ const AlumnosTable = (props) => {
               </tr>
             </thead>
             <tbody>
-              {/* {alumnosD} */}
+              {alumnosData}
             </tbody>
     </table>
-    
-    
-  
   );
 
   return (

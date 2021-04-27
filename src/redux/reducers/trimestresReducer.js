@@ -3,22 +3,18 @@ import _ from 'lodash';
 
 import  * as typesClass from '../types';
 
-//En lugar de usar una aproximación de estado por array (devolviendo un array de grupos)
-// lo vamos a hacer devolviendo un objeto, por eso el estado inicial es un objeto vacío.
 export default (state = {}, action) => { 
   switch (action.type) {
-    case typesClass.FETCH_ALUMNO:
+    case typesClass.FETCH_TRIMESTRE:
       return { ...state, [action.payload.id]: action.payload };
-    case typesClass.ADD_ALUMNO:
+    case typesClass.ADD_TRIMESTRE:
       return { ...state, [action.payload.id]: action.payload };
-    case typesClass.UPDATE_ALUMNO:
+    case typesClass.UPDATE_TRIMESTRE:
       return { ...state, [action.payload.id]: action.payload };
-    case typesClass.DELETE_ALUMNO:
+    case typesClass.DELETE_TRIMESTRE:
       return _.omit(state, action.payload);
-    case typesClass.FETCH_ALUMNOS:
+    case typesClass.FETCH_TRIMESTRES:
       return { ...state, ..._.mapKeys(action.payload, 'id') };
-    case typesClass.FETCH_ALUMNOS_BY_GROUP:
-      return { ..._.mapKeys(action.payload, 'id') };
     default:
       return state;
   }
