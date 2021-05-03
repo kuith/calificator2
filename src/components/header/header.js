@@ -15,13 +15,14 @@ const Header = () => {
     dispatch(fetchGroups());
   }, []);
 
-  console.log(grupos);
+  
   //grupos
   const gruposNavItem = grupos.map(grupo => (
     <Link className="dropdown-item" key={grupo.id} to={`/grupos/${grupo.id}`}>
       {grupo.curso} {grupo.nombre}
     </Link>
   )); 
+
 
   const gruposNav = (
     <li className="nav-item dropdown ">

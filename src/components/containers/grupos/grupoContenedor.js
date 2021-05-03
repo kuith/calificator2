@@ -13,6 +13,7 @@ import ParcialesContenedor from '../parciales/parcialesContenedor';
 
 const GrupoContenedor = (props) => {
   //recibo el id del grupo
+ 
   const dispatch = useDispatch();
   const grupo = (useSelector((state) => state.grupos[props.id]));
        

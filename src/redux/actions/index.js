@@ -84,6 +84,13 @@ export const fetchAlumnosByGrupo = (idGrupo) => async dispatch => {
   dispatch({ type: typesClass.FETCH_ALUMNOS_BY_GROUP, payload: response.data });
 }
 
+export const selectAlumno = alumno => {
+  return {
+    type: typesClass.SELECTED_ALUMNO,
+    payload: alumno
+  }
+}
+
 //////TRIMESTRES ACTIONS /////////////////
 
 export const fetchTrimestres = () => async dispatch => {
@@ -200,3 +207,52 @@ export const fetchFinalByTrimestreAlumno = (idTrimestre, idAlumno) => async disp
 }
 
 //////REALIZA ACTIONS /////////////////
+
+export const fetchRealizas = () => async dispatch => {
+  const response = await axios.get('/realizas');
+
+  dispatch({ type: typesClass.FETCH_REALIZAS, payload: response.data });
+};
+
+export const createRealiza = formValues => async dispatch => {
+  const response = await axios.post('/realizas', formValues);
+
+  dispatch({ type: typesClass.ADD_REALIZA, payload: response.data });
+}
+
+export const fetchRealiza = (id) => async dispatch => {
+  const response = await axios.get(`/realizas/${id}`);
+
+  dispatch({ type: typesClass.FETCH_REALIZA, payload: response.data });
+}
+
+export const fetchRealizasByTrimestre = (idTrimestre) => async dispatch => {
+  const response = await axios.get(`/realizas/parciales/${idTrimestre}`);
+  
+  dispatch({ type: typesClass.FETCH_REALIZA_BY_TRIMESTRE, payload: response.data });
+}
+
+export const fetchrealizasByTrimestreGrupo = (idTrimestre, idGrupo) => async dispatch => {
+  const response = await axios.get(`/realizas/parciales/${idTrimestre}/${idGrupo}`);
+
+  dispatch({ type: typesClass.FETCH_REALIZA_BY_TRIMESTRE_GRUPO, payload: response.data });
+}
+
+export const fetchrealizasByAlumnoTrimestre = (idAlumno, idTrimestre) => async dispatch => {
+  const response = await axios.get(`/realizas/parciales/${idAlumno}/${idTrimestre}`);
+
+  dispatch({ type: typesClass.FETCH_REALIZA_BY_ALUMNO_TRIMESTRE, payload: response.data });
+}
+
+export const updateRealizas = (id, formValues) => async dispatch => {
+  const response = await axios.put(`/realizas/${id}`, formValues);
+
+  dispatch({ type: typesClass.UPDATE_REALIZA, payload: response.data})
+}
+
+export const deleteRealiza = (id) => async dispatch => {
+  //no hay response porque no devuelve nada
+  await axios.delete(`/realizas/${id}`);
+
+  dispatch({ type: typesClass.DELETE_REALIZA, payload: id });
+}
