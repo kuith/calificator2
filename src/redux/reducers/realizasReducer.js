@@ -1,7 +1,15 @@
 /* eslint-disable import/no-anonymous-default-export */
 import _ from 'lodash';
 
-import  * as typesClass from '../types';
+import * as typesClass from '../types';
+
+/* const realizasDefecto = {
+  id: 0,
+  idAlumno: 0,
+  idParcial: 0,
+  idTrimestre: 0,
+  nota: 0
+ } */
 
 export default (state = {}, action) => { 
   switch (action.type) {

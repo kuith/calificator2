@@ -1,17 +1,21 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {selectTrimestre} from '../../redux/actions'
+import {selectTrimestreId} from '../../redux/actions'
 
 const TrimestresList = (props) => {
   const trimestres = Object.values(useSelector((state) => state.trimestres));
   const dispatch = useDispatch();
-  
-  const listaTrimestres = trimestres.map(trimestre => (
+  const selectedTrimestreId = useSelector((state) => state.selectedTrimestreId);
+
+  const selectTrimestreHandler = (tri) => {
+    dispatch(selectTrimestreId(tri))
+  }
+ const listaTrimestres = trimestres.map(trimestre => (
     <button
       type="button"
       key={trimestre.id}
       className="btn btn-info boton"
-      onClick={()=> dispatch(selectTrimestre(trimestre))}
+      onClick={()=> selectTrimestreHandler(trimestre.id)}
     >{trimestre.nombre}</button>
   ));
 

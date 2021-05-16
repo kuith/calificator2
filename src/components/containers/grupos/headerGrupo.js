@@ -2,6 +2,7 @@ import React from 'react';
 import TrimestresList from '../../views/trimestresList'
 
 const HeaderGrupo = (props) => {
+
   //console.log("El grupo tiene id: " + props.grupo.id);
   return (
     <div className="row">

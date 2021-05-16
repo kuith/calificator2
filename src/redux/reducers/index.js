@@ -11,7 +11,7 @@ export default combineReducers({
   grupos: gruposReducer,
   alumnos: alumnosReducer,
   trimestres: trimestresReducer,
-  selectedTrimestre: selectedTrimestreReducer,
+  selectedTrimestreId: selectedTrimestreReducer,
   realizas: realizasReducer,
   parciales: parcialesRecuder
 });

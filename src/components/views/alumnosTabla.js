@@ -5,16 +5,13 @@ import ParcialesTabla from './parcialesTabla';
 
 const AlumnosTable = () => {
   const alumnos = Object.values(useSelector((state) => state.alumnos));
-
   const alumnosData = alumnos.map(alumno => (
-    <>
     <tr key={alumno.id}>
       <th scope="row"><BsFillTrashFill /></th>
       <td>{alumno.nombre}</td>
       <td>{alumno.apellidos}</td>
       <ParcialesTabla idAlumno = {alumno.id} />
-      </tr>
-    </>
+    </tr>
   ));
 
   const alumnosTable = (

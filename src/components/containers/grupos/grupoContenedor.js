@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchGroup,
   fetchAlumnosByGrupo,
-  fetchTrimestres
+  fetchTrimestres,
+  selectTrimestre
 } from '../../../redux/actions';
 
 import HeaderGrupo from './headerGrupo';
