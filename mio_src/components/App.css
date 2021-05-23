@@ -1,0 +1,13 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tablaParciales {
+  margin-top: 10px;
+}
+
+.boton {
+  margin: 5px;
+}
